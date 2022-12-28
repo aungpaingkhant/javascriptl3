@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
+<body> 
+
+    <div class="container border p-5">
+        <h4>Text Editor</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="bold" title="Bold Text">Bold</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="italic" title="Italic Text">Italic</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="underline" title="Underline Text">Underline</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="strikeThrough" title="Line Through">LineThrough</button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="justifyLeft" title="Left Align"><i class="fas fa-align-left"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="justifyCenter" title="Center Align"><i class="fas fa-align-center"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="justifyRight" title="Right Align"><i class="fas fa-align-right"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="justifyFull" title="Justify Align"><i class="fas fa-align-justify"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="" onclick="upcasefun()" title="Uppercase Text">Upper Case</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="" onclick="lwcasefun()" title="Lowercase Text">Lower Case</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="" onclick="capcasefun()" title="Capitalize Text">Capitalize Case</button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="subscript" title="Subscript"><i class="fas fa-subscript"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="superscript" title="Superscript"><i class="fas fa-superscript"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="insertOrderedList" title="Order List"><i class="fas fa-list-ol"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="insertUnorderedList" title="Unorder List"><i class="fas fa-list-ul"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="insertHorizontalRule" title="Horizonal Rule"><i class="fas fa-ruler"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="selectAll" title="Select All"><i class="fas fa-check"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="delete" title="Backspace"><i class="fas fa-backspace"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="forwardDelete" title="Forward Delete"><i class="fas fa-trash-alt"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="insertHorizontalRule" title="Horizontal Ruler"><i class="fas fa-ruler"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="copy" title="Copy"><i class="fas fa-copy"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="cut" title="Cut"><i class="fas fa-cut"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="paste" title="Paste"><i class="fas fa-paste"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="redo" title="Redo"><i class="fas fa-redo"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="undo" title="Undo"><i class="fas fa-undo"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="createLink" title="Link"><i class="fas fa-link"></i></button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="unlink" title="unlink"><i class="fas fa-unlink"></i></button>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="insertImage" title="Image"><i class="fas fa-image"></i></button>
+
+                <input type="color" class="btn btn-outline-secondary rounded-0" data-command="foreColor" title="color picker" />
+
+                <select name="forecolor" id="forecolor" class="btn btn-outline-secondary rounded-0" data-command="foreColor">
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                </select>
+
+                <select name="bgcolor" id="bgcolor" class="btn btn-outline-secondary rounded-0" data-command="backColor">
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                </select>
+
+                <select name="fntname" id="fntname" class="btn btn-outline-secondary rounded-0" data-command="fontName">
+                    <option value="arial">arial</option>
+                    <option value="century">century</option>
+                    <option value="sans-serif">sans-serif</option>
+                    <option value="time new romen">time new romen</option>
+                </select>
+
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="cleartext" title="Clear Text">Clear</button>
+                <button type="button" class="btn btn-outline-secondary rounded-0" data-command="removeFormat" title="Remove Format">Remove Format</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="">
+                    <div class="form-group">
+                        <!-- <textarea name="arti" id="textarea" class="form-control" rows="15" placeholder="Write Something..."></textarea> -->
+                        <!-- <div id="divarea" class="divarea" contenteditable="true" spellcheck="false"></div> -->
+                        <div id="divarea" class="divarea"></div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #000;
+}
+
+.timeline{
+    width: 500px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+.timeline::after{
+    content: '';
+    
+    width: 6px;
+    height: 100%;
+    background-color: #fff;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* bottom: 0; */
+}
+
+.boxes{
+    width: 50%;
+}
+
+.content{
+    background-color: #fff;
+
+    border-radius: 10px;
+
+    padding: 20px 30px;
+}
